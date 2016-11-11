@@ -30,5 +30,16 @@ TARGET_KERNEL_CONFIG := cyanogenmod_Z00L_defconfig
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
+# SEPolicy
+BOARD_SEPOLICY_DIRS += \
+    $(DEVICE_PATH)/sepolicy
+
+BOARD_SEPOLICY_UNION += \
+    memcheck.te \
+    irsc_util.te \
+    mm-qcamerad.te \
+    system_server.te \
+    file_contexts
+
 # inherit from the proprietary version
 -include vendor/asus/Z00L/BoardConfigVendor.mk
